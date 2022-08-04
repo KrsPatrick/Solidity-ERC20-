@@ -7,6 +7,9 @@ contract ERC20 {
     string public name;
     string public symbol;
 
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Apporval(address indexed owner, address indexed spender, uint256 value);
+
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
@@ -35,12 +38,16 @@ contract ERC20 {
 
         allowance[sender][msg.sender] = currentAllowance - amount;
 
+        emit Apporval(sender, msg.sender, amount);
+
         return _transfer(sender, recipient, amount);
     }
 
     function approve(address spender, uint256 amount) external returns (bool) {
         require(spender != address(0), "ERC20: transfer to the zero address");
         allowance[msg.sender][spender] = amount;
+
+        emit Apporval(msg.sender, spender, amount);
 
         return true;
     }
@@ -55,6 +62,8 @@ contract ERC20 {
         balanceOf[sender] = senderBalance - amount;
         balanceOf[recipient] += amount;
 
+        emit Transfer(sender, recipient, amount);
+
         return true;
     }
 
@@ -63,5 +72,7 @@ contract ERC20 {
 
         totalSupply += amount;
         balanceOf[to] += amount;
+
+        emit Transfer(address(0), to, amount);
     }
 } 

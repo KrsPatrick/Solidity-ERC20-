@@ -1,7 +1,7 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { ERC20 } from "../typechain";
+import {ERC20} from "../typechain";
 
 describe("My ERC20 Contract", function () {
     let myERC20Contract: ERC20;
@@ -10,7 +10,7 @@ describe("My ERC20 Contract", function () {
 
     beforeEach(async function () {
         const ERC20ContractFactory = await ethers.getContractFactory("ERC20");
-        const myERC20Contract = await ERC20ContractFactory.deploy("Hello", "SYM");
+        myERC20Contract = await ERC20ContractFactory.deploy("Hello", "SYM");
         await myERC20Contract.deployed()
 
         someAddress = (await ethers.getSigners())[1]

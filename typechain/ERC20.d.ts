@@ -73,7 +73,13 @@ interface ERC20Interface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
 
-  events: {};
+  events: {
+    "Apporval(address,address,uint256)": EventFragment;
+    "Transfer(address,address,uint256)": EventFragment;
+  };
+
+  getEvent(nameOrSignatureOrTopic: "Apporval"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
 
 export class ERC20 extends BaseContract {
@@ -228,7 +234,25 @@ export class ERC20 extends BaseContract {
     ): Promise<boolean>;
   };
 
-  filters: {};
+  filters: {
+    Apporval(
+      owner?: string | null,
+      spender?: string | null,
+      value?: null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { owner: string; spender: string; value: BigNumber }
+    >;
+
+    Transfer(
+      from?: string | null,
+      to?: string | null,
+      value?: null
+    ): TypedEventFilter<
+      [string, string, BigNumber],
+      { from: string; to: string; value: BigNumber }
+    >;
+  };
 
   estimateGas: {
     allowance(

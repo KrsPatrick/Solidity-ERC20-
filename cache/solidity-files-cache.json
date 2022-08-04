@@ -1,7 +1,42 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\lesie\\Desktop\\Visual\\Solidity\\contracts\\Greeter.sol": {
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\ERC20.sol": {
+      "lastModificationDate": 1659594894401,
+      "contentHash": "b7990e5fefec898c24849159f63d4299",
+      "sourceName": "contracts/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.15"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\Greeter.sol": {
       "lastModificationDate": 1659535562895,
       "contentHash": "4c7b19f21ec8ca1ac9ecd158c0cda805",
       "sourceName": "contracts/Greeter.sol",
@@ -38,7 +73,7 @@
         "Greeter"
       ]
     },
-    "C:\\Users\\lesie\\Desktop\\Visual\\Solidity\\node_modules\\hardhat\\console.sol": {
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\node_modules\\hardhat\\console.sol": {
       "lastModificationDate": 1656924693158,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
@@ -71,41 +106,6 @@
       ],
       "artifacts": [
         "console"
-      ]
-    },
-    "C:\\Users\\lesie\\Desktop\\Visual\\Solidity\\contracts\\ERC20.sol": {
-      "lastModificationDate": 1659541630938,
-      "contentHash": "394f5443bf86ff7314eba69c08dd7806",
-      "sourceName": "contracts/ERC20.sol",
-      "solcConfig": {
-        "version": "0.8.15",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.15"
-      ],
-      "artifacts": [
-        "ERC20"
       ]
     }
   }
