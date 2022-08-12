@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.15;
+pragma solidity ^0.8.15;
 
 contract ERC20 {
     uint256 public totalSupply;
@@ -74,5 +74,14 @@ contract ERC20 {
         balanceOf[to] += amount;
 
         emit Transfer(address(0), to, amount);
+    }
+
+    function _burn(address from, uint256 amount) internal {
+        require(from != address(0), "ERC20: burn to the zero address");
+
+        totalSupply -= amount;
+        balanceOf[from] -= amount;
+
+        emit Transfer(from, address(0), amount);
     }
 } 
