@@ -1,35 +1,34 @@
-import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signer-with-address";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import {ERC20} from "../typechain";
+import {StableCoin} from "../typechain/StableCoin";
 
-describe("My ERC20 Contract", function () {
-    let myERC20Contract: ERC20;
-    let someAddress: SignerWithAddress;
-    let someOtherAddress: SignerWithAddress;
+describe("StableCoin", function() {
+    let ethUsdPrice: number, feeRatePercentage: number;
+    let StableCoin: StableCoin;
 
-    beforeEach(async function () {
-        const ERC20ContractFactory = await ethers.getContractFactory("ERC20");
-        myERC20Contract = await ERC20ContractFactory.deploy("Hello", "SYM");
-        await myERC20Contract.deployed()
+    this.beforeEach(async () => {
+        feeRatePercentage = 3;
+        ethUsdPrice = 4000;
 
-        someAddress = (await ethers.getSigners())[1]
-        someOtherAddress = (await ethers.getSigners())[2]
-    })
+        const OracleFactory = await ethers.getContractFactory("Oracle");
+        const ethUsdOracle = await OracleFactory.deploy();
+        await ethUsdOracle.setPrice(ethUsdPrice);
 
-    describe("when I have 10 tokens", () => {
-        beforeEach(async () => {
-            // mint 10 tokens
-            await myERC20Contract.transfer(someAddress.address, 10);
-        })
+        const StableCoinFactory = await ethers.getContractFactory("StableCoin");
+        StableCoin = await StableCoinFactory.deploy(feeRatePercentage, ethUsdOracle.address);
+        await StableCoin.deployed();
+    });
 
-        describe("when I transfer 10 tokens", () => {
-            it("should transfer tokens correctly",async () => {
-                await myERC20Contract
-                .connect(someAddress)
-                .transfer(someOtherAddress.address, 10)
-            expect(await myERC20Contract.balanceOf(someOtherAddress.address)).to.equal(10);
-            })
-        })
+    it("Should set fee rate percentage", async function () {
+        expect(await StableCoin.feeRatePercentage()).to.equal(feeRatePercentage);
+
+    });
+
+    it("Should allow mintin" , async function () {
+        const ethAmount = 1;
+        const expectedMintAmount = ethAmount * ethUsdPrice;
+        await StableCoin.mint({
+            value: ethers.utils.parseEther(ethAmount.toString()),
+        });
     })
 })

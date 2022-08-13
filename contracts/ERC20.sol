@@ -17,7 +17,6 @@ contract ERC20 {
         name = _name;
         symbol = _symbol;
 
-        _mint(msg.sender, 100e18);
     }
 
     function decimals() public pure returns (uint8) {

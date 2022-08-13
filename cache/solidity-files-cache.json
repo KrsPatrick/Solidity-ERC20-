@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\ERC20.sol": {
-      "lastModificationDate": 1659594894401,
-      "contentHash": "b7990e5fefec898c24849159f63d4299",
+      "lastModificationDate": 1660367958143,
+      "contentHash": "c37c7002055601f2acdbbfd813318f96",
       "sourceName": "contracts/ERC20.sol",
       "solcConfig": {
         "version": "0.8.15",
@@ -30,7 +30,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "0.8.15"
+        "^0.8.15"
       ],
       "artifacts": [
         "ERC20"
@@ -106,6 +106,153 @@
       ],
       "artifacts": [
         "console"
+      ]
+    },
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\DepositorCoin.sol": {
+      "lastModificationDate": 1660283908168,
+      "contentHash": "73b161f95365dff5763a878870ec739f",
+      "sourceName": "contracts/DepositorCoin.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.15"
+      ],
+      "artifacts": [
+        "DepositorCoin"
+      ]
+    },
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\StableCoin.sol": {
+      "lastModificationDate": 1660297360129,
+      "contentHash": "7510d578bcfe881db0009f3c080fde8b",
+      "sourceName": "contracts/StableCoin.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC20.sol",
+        "./DepositorCoin.sol",
+        "./Oracle.sol",
+        "./WadLib.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.15"
+      ],
+      "artifacts": [
+        "StableCoin"
+      ]
+    },
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\Oracle.sol": {
+      "lastModificationDate": 1660285603609,
+      "contentHash": "62afd9bfccf5dbb056d25ce8fd1ebe1a",
+      "sourceName": "contracts/Oracle.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.15"
+      ],
+      "artifacts": [
+        "Oracle"
+      ]
+    },
+    "C:\\Users\\lesie\\Desktop\\Solidity-ERC20-\\contracts\\WadLib.sol": {
+      "lastModificationDate": 1660296750663,
+      "contentHash": "e4998bed680a507ffb80aad6bae2840f",
+      "sourceName": "contracts/WadLib.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.15"
+      ],
+      "artifacts": [
+        "WadLib"
       ]
     }
   }
